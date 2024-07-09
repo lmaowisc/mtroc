@@ -1,10 +1,22 @@
+---
+output: github_document
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
 # mtroc
 
-The **mtroc** package uses a two-level random-effects model for multiple
-imputations of missing data in meta analysis of diagnostic accuracy
+The **mtroc** package uses a two-level random-effects model for multiple imputations of missing
+  data in meta analysis of diagnostic accuracy
 
 ## Installation
 
@@ -16,7 +28,7 @@ install.packages("mtroc")
 
 You can install the development version from GitHub with:
 
-``` r
+```{r, eval = FALSE}
 # install.packages("devtools")
 devtools::install_github("lmaowisc/mtroc")
 ```

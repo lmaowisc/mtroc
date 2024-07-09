@@ -7,3 +7,4 @@ test.R
 .httr-oauth
 .DS_Store
 .quarto
+docs

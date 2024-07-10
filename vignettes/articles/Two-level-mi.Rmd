@@ -15,11 +15,11 @@ knitr::opts_chunk$set(
 ```
 
 $$
-\def\TPi{\mbox{TP}_i}
-\def\FNi{\mbox{FN}_i}
-\def\FPi{\mbox{FP}_i}
-\def\TNi{\mbox{TN}_i}
-\def\logit{{\rm logit}}
+\newcommand{\TPi}{\mbox{TP}_i}
+\newcommand{\FNi}{\mbox{FN}_i}
+\newcommand{\FPi}{\mbox{FP}_i}
+\newcommand{\TNi}{\mbox{TN}_i}
+\newcommand{\logit}{{\rm logit}}
 $$
 
 ## Set-up and notation

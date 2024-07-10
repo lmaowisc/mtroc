@@ -188,6 +188,21 @@ respectively. This leads us to posit a two-level model for prevalence
 and for sensitivity-specificity relationship: the first allows us to
 impute the size of cases or non-cases; the second to impute specificity
 from sensitivity (or vice versa).</p>
+<p>To account for between-study heterogeneity, we add study-specific
+random effects on the logit scale of each model. Write <span class="math inline">${\rm logit}(x)=\log\{x/(1-x)\}$</span>. <span class="math display">$$\begin{align}\tag{1}
+{\rm logit}(\pi_i)&amp;= \alpha_0 + \varepsilon_i\\
+{\rm logit}(q_i) &amp;= (\beta_0 + b_{0i}) + (\beta_1 + b_{1i}){\rm
+logit}(p_i),
+\end{align}$$</span> where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>α</mi><mn>0</mn></msub><mo>,</mo><msub><mi>β</mi><mn>0</mn></msub><mo>,</mo><msub><mi>β</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(\alpha_0, \beta_0, \beta_1)</annotation></semantics></math>
+are fixed effects,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ε</mi><mi>i</mi></msub><mo>∼</mo><mi>N</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><msubsup><mi>σ</mi><mi>π</mi><mn>2</mn></msubsup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\varepsilon_i\sim N(0, \sigma_\pi^2)</annotation></semantics></math>,
+<span class="math inline">$b_i=(b_{0i}, b_{1i})^{\rm T}\sim N(0,
+\Sigma_b)$</span>, and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ε</mi><mi>i</mi></msub><mo>⊥</mo><msub><mi>b</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\varepsilon_i\perp b_i</annotation></semantics></math>.
+In particular, model (1) maximally allows for study-to-study variations
+in the prevalence and in the (generally negative) correlation between
+sensitivity and specificity.</p>
 </div>
 </div>
 <div class="section level2 unnumbered">

@@ -1,5 +1,6 @@
 ---
 title: "Multiple imputations by two-level model"
+output: rmarkdown::html_vignette
 editor_options: 
   markdown: 
     wrap: 72

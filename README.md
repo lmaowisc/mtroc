@@ -4,7 +4,7 @@
 # mtroc
 
 The **mtroc** package uses a two-level random-effects model for multiple
-imputations of missing data in meta analysis of diagnostic accuracy
+imputations of missing data in meta analysis of diagnostic accuracy.
 
 ## Installation
 
@@ -21,6 +21,11 @@ You can install the development version from GitHub with:
 devtools::install_github("lmaowisc/mtroc")
 ```
 
+## Methodology
+
+See [*Multiple imputations by two-level
+model*](https://lmaowisc.github.io/mtroc/articles/Two-level-mi.html)*.*
+
 ## Examples
 
-Here is a basic example.
+An example will be provided.

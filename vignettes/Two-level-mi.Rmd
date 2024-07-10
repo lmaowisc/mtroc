@@ -45,10 +45,10 @@ into any standard software, e.g., `mada` [@mada], for meta-analysis.
 Consider the scenario where there are no non-cases in some study $i$, so
 $\mbox{FN}_i$, $\mbox{TN}_i=$`NA`. An example:
 
-```{r}
+
+```{r setup}
 library(mtroc)
 uts
-
 ```
 
 We aim to fill in the missing values of $\mbox{FN}_i$ and $\mbox{TN}_i$
@@ -69,8 +69,8 @@ impute specificity from sensitivity (or vice versa).
 To account for between-study heterogeneity, we add study-specific random effects 
 on the logit scale of each model. Write ${\rm logit}(x)=\log\{x/(1-x)\}$.
 \begin{align}\tag{1}
-{\rm logit}(\pi_i)&= \alpha_0 + \varepsilon_i\\
-{\rm logit}(q_i) &= (\beta_0 + b_{0i}) + (\beta_1 + b_{1i}){\rm logit}(p_i),
+\mbox{logit}(\pi_i)&= \alpha_0 + \varepsilon_i\\
+\mbox{logit}(q_i) &= (\beta_0 + b_{0i}) + (\beta_1 + b_{1i})\mbox{logit}(p_i),
 \end{align}
 where $(\alpha_0, \beta_0, \beta_1)$ are fixed effects, 
 $\varepsilon_i\sim N(0, \sigma_\pi^2)$, 

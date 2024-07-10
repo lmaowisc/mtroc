@@ -6,12 +6,13 @@
 \alias{mtroc-package}
 \title{mtroc: Meta Analysis of Diagnostic Accuracy with Missing Data}
 \description{
-Using a two-level random-effects model for multiple imputations of missing data in meta analysis of diagnostic accuracy
+Using a two-level random-effects model for multiple imputations of missing data in meta analysis of diagnostic accuracy.
 }
 \seealso{
 Useful links:
 \itemize{
   \item \url{https://github.com/lmaowisc/mtroc}
+  \item \url{https://lmaowisc.github.io/mtroc/}
   \item Report bugs at \url{https://github.com/lmaowisc/mtroc/issues}
 }
 

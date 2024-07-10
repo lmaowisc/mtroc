@@ -1,0 +1,14 @@
+---
+title: "Multiple imputations by two-level model"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(mtroc)
+```

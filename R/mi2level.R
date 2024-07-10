@@ -7,7 +7,9 @@ two_level_mod_fit <- function(dfcc){
   v_pi <- var(logit_pi)
 
   mc <- nrow(dfcc)
-  obj_lm <- lm(logit_q ~ logit_p, dfcc)
+
+
+  obj_lm <- lm(logit_q ~ logit_p, weights = n, data = dfcc)
 
   beta <- coef(obj_lm)
   V_beta <- vcov(obj_lm) * mc

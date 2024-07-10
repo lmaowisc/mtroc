@@ -2,8 +2,8 @@ pandoc: 3.1.11
 pkgdown: 2.1.0
 pkgdown_sha: ~
 articles:
-  articles/Two-level-mi: Two-level-mi.html
-last_built: 2024-07-10T09:22Z
+  Two-level-mi: Two-level-mi.html
+last_built: 2024-07-10T09:41Z
 urls:
   reference: https://lmaowisc.github.io/mtroc/reference
   article: https://lmaowisc.github.io/mtroc/articles

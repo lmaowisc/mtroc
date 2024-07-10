@@ -2,12 +2,9 @@
 title: "Multiple imputations by two-level model"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Two-level-mi}
+  %\VignetteIndexEntry{Multiple imputations by two-level model}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
-editor_options: 
-  markdown: 
-    wrap: 72
 bibliography: references.bib
 ---
 

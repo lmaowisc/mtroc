@@ -14,33 +14,27 @@ knitr::opts_chunk$set(
 )
 ```
 
-$$
-\newcommand{\TPi}{\mbox{TP}_i}
-\newcommand{\FNi}{\mbox{FN}_i}
-\newcommand{\FPi}{\mbox{FP}_i}
-\newcommand{\TNi}{\mbox{TN}_i}
-\newcommand{\logit}{{\rm logit}}
-$$
+
 
 ## Set-up and notation
 
 Suppose there are $m$ studies to evaluate the diagnostic accuracy of
 some test. For the $i$th study, let
 
--   $\TPi$: number of true positives
--   $\FNi$: number of false negatives
--   $\FPi$: number of false positives
--   $\TNi$: number of true negatives
+-   $\mbox{TP}_i$: number of true positives
+-   $\mbox{FN}_i$: number of false negatives
+-   $\mbox{FP}_i$: number of false positives
+-   $\mbox{TN}_i$: number of true negatives
 
 These are the data we wish to collect for each $i=1,\ldots, m$. Write
-$N_i=\TPi+\FNi$, the number of cases; $\bar N_i=\FPi + \TNi$, the number
+$N_i=\mbox{TP}_i+\mbox{FN}_i$, the number of cases; $\bar N_i=\mbox{FP}_i + \mbox{TN}_i$, the number
 of non-cases; and $n_i = N_i + \bar N_i$, the total sample size.
 
 Let $p_i$ denote the sensitivity, $q_i$ the specificity, and $\pi_i$ the
 prevalence of cases in the $i$th study. If there is no missing data, we
-can easily estimate them by $\hat p_i=\TPi/N_i$,
-$\hat q_i=\TNi/\bar N_i$, and $\hat\pi_i=N_i/n_i$, respectively. We can
-also feed the entire data $(\TPi, \FNi, \FPi, \TNi)$ $(i=1,\ldots, m)$
+can easily estimate them by $\hat p_i=\mbox{TP}_i/N_i$,
+$\hat q_i=\mbox{TN}_i/\bar N_i$, and $\hat\pi_i=N_i/n_i$, respectively. We can
+also feed the entire data $(\mbox{TP}_i, \mbox{FN}_i, \mbox{FP}_i, \mbox{TN}_i)$ $(i=1,\ldots, m)$
 into any standard software, e.g., `mada` [@mada], for meta-analysis.
 
 ## Methods
@@ -48,7 +42,7 @@ into any standard software, e.g., `mada` [@mada], for meta-analysis.
 ### A motivating example
 
 Consider the scenario where there are no non-cases in some study $i$, so
-$\FNi$, $\TNi=$`NA`. An example:
+$\mbox{FN}_i$, $\mbox{TN}_i=$`NA`. An example:
 
 ```{r}
 library(mtroc)
@@ -56,7 +50,7 @@ uts
 
 ```
 
-We aim to fill in the missing values of $\FNi$ and $\TNi$ by **multiple
+We aim to fill in the missing values of $\mbox{FN}_i$ and $\mbox{TN}_i$ by **multiple
 imputations (MI)**.
 
 ### Two-level random-effects models
@@ -64,7 +58,7 @@ imputations (MI)**.
 We can think of the data as generated in two stages. First, with total
 sample size $n_i$, the relative size of $N_i$ vs $\bar N_i$ is
 determined by prevalence $\pi_i$. Second, given $N_i$ and $\bar N_i$,
-the relative size of $\TPi$ vs $\FNi$, and that of $\FPi$ vs $\TNi$, are
+the relative size of $\mbox{TP}_i$ vs $\mbox{FN}_i$, and that of $\mbox{FP}_i$ vs $\mbox{TN}_i$, are
 determined by sensitivity $p_i$ and specificity $q_i$, respectively.
 This leads us to posit a two-level model for prevalence and for
 sensitivity-specificity relationship: the first allows us to impute the
@@ -74,8 +68,8 @@ sensitivity (or vice versa).
 To account for between-study heterogeneity, we add study-specific random
 effects on the logit scale of each model. Write
 ${\rm logit}(x)=\log\{x/(1-x)\}$. \begin{align}\tag{1}
-\logit(\pi_i)&= \alpha_0 + \varepsilon_i\\
-\logit(q_i) &= (\beta_0 + b_{0i}) + (\beta_1 + b_{1i})\logit(p_i),
+{\rm logit}(\pi_i)&= \alpha_0 + \varepsilon_i\\
+{\rm logit}(q_i) &= (\beta_0 + b_{0i}) + (\beta_1 + b_{1i}){\rm logit}(p_i),
 \end{align} where $(\alpha_0, \beta_0, \beta_1)$ are fixed effects,
 $\varepsilon_i\sim N(0, \sigma_\pi^2)$,
 $b_i=(b_{0i}, b_{1i})^{\rm T}\sim N(0, \Sigma_b)$, and
@@ -87,10 +81,10 @@ Let $\mathcal C$ denote the set of indices where complete data are
 observed. Thus for each $i\in\mathcal C_i$, we have complete estimates
 of $\hat\pi$, $\hat p_i$, and $\hat q_i$. Using them as
 pseudo-observations in (1), we can estimate the parameters by
-$\hat\alpha=\mbox{mean}\{\logit(\hat\pi_i): i\in\mathcal C\}$,
-$\hat\sigma_\pi^2=\mbox{var}\{\logit(\hat\pi_i): i\in\mathcal C\}$,
+$\hat\alpha=\mbox{mean}\{{\rm logit}(\hat\pi_i): i\in\mathcal C\}$,
+$\hat\sigma_\pi^2=\mbox{var}\{{\rm logit}(\hat\pi_i): i\in\mathcal C\}$,
 $\hat\beta=$ least-squares estimate of
-$\logit(\hat q_i) \mbox{ vs }\logit(\hat p_i)$ $(i\in\mathcal C)$.
+${\rm logit}(\hat q_i) \mbox{ vs }{\rm logit}(\hat p_i)$ $(i\in\mathcal C)$.
 Finally, $\Sigma_b$ can be estimated by
 $\hat\Sigma_b=|\mathcal C|\hat{\mbox{var}}(\hat\beta)$, where
 $|\mathcal C|$ is the number of studies in $\mathcal C$ and
@@ -100,9 +94,9 @@ $\hat\beta$ under standard least squares.
 ### Imputation process
 
 For any
-$i\in\overline{\mathcal C}=\{i=1,\ldots, m: \FNi \mbox{ and } \TNi \mbox{ are missing}\}$,
-we only know $N_i$ and $\hat p_i$, and will have to impute $\FNi$ and
-$\TNi$. We do so multiple times by drawing random effects from model
+$i\in\overline{\mathcal C}=\{i=1,\ldots, m: \mbox{FN}_i \mbox{ and } \mbox{TN}_i \mbox{ are missing}\}$,
+we only know $N_i$ and $\hat p_i$, and will have to impute $\mbox{FN}_i$ and
+$\mbox{TN}_i$. We do so multiple times by drawing random effects from model
 (1), in order to account for the certainty in the missing values.
 
 At the $j$th imputation, for each $i\in\overline{\mathcal C}$:
@@ -114,13 +108,13 @@ At the $j$th imputation, for each $i\in\overline{\mathcal C}$:
     in model (1);
 -   Impute the missing values by
     $\bar N_i^{(j)}= N_i(1-\hat\pi_i^{(j)})/\hat\pi_i^{(j)}$,
-    $\FNi^{(j)} = \bar N_i^{(j)}(1-\hat q_i^{(j)})$, and
-    $\TNi^{(j)} = \bar N_i^{(j)}\hat q_i^{(j)}$.
+    $\mbox{FN}_i^{(j)} = \bar N_i^{(j)}(1-\hat q_i^{(j)})$, and
+    $\mbox{TN}_i^{(j)} = \bar N_i^{(j)}\hat q_i^{(j)}$.
 
 We thus obtain a completed dataset $$
 \mathcal D^{(j)}=
-\{(\TPi, \FNi, \FPi^{(j)}, \TNi^{(j)}): i=1,\ldots, m\},
-$$ where we define $\FPi^{(j)}=\FPi$ and $\TNi^{(j)}=\TNi$ for
+\{(\mbox{TP}_i, \mbox{FN}_i, \mbox{FP}_i^{(j)}, \mbox{TN}_i^{(j)}): i=1,\ldots, m\},
+$$ where we define $\mbox{FP}_i^{(j)}=\mbox{FP}_i$ and $\mbox{TN}_i^{(j)}=\mbox{TN}_i$ for
 $i\in\mathcal C$. Given $\mathcal D^{(j)}$, we can use standard software
 for meta-analysis to obtain a summary measure of diagnostic accuracy,
 say, the summary AUC, denoted by $\hat{\rm AUC}^{(j)}$. We may also

@@ -64,13 +64,6 @@
 
     
     
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow></mrow><annotation encoding="application/x-tex">
-\newcommand{\TPi}{\mbox{TP}_i}
-\newcommand{\FNi}{\mbox{FN}_i}
-\newcommand{\FPi}{\mbox{FP}_i}
-\newcommand{\TNi}{\mbox{TN}_i}
-\newcommand{\logit}{{\rm logit}}
-</annotation></semantics></math></p>
 <div class="section level2">
 <h2 id="set-up-and-notation">Set-up and notation<a class="anchor" aria-label="anchor" href="#set-up-and-notation"></a>
 </h2>
@@ -81,23 +74,25 @@ studies to evaluate the diagnostic accuracy of some test. For the
 study, let</p>
 <ul>
 <li>
-<span class="math inline">$\TPi$</span>: number of true
-positives</li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mtext mathvariant="normal">TP</mtext><mi>i</mi></msub><annotation encoding="application/x-tex">\mbox{TP}_i</annotation></semantics></math>:
+number of true positives</li>
 <li>
-<span class="math inline">$\FNi$</span>: number of false
-negatives</li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mtext mathvariant="normal">FN</mtext><mi>i</mi></msub><annotation encoding="application/x-tex">\mbox{FN}_i</annotation></semantics></math>:
+number of false negatives</li>
 <li>
-<span class="math inline">$\FPi$</span>: number of false
-positives</li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mtext mathvariant="normal">FP</mtext><mi>i</mi></msub><annotation encoding="application/x-tex">\mbox{FP}_i</annotation></semantics></math>:
+number of false positives</li>
 <li>
-<span class="math inline">$\TNi$</span>: number of true
-negatives</li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mtext mathvariant="normal">TN</mtext><mi>i</mi></msub><annotation encoding="application/x-tex">\mbox{TN}_i</annotation></semantics></math>:
+number of true negatives</li>
 </ul>
 <p>These are the data we wish to collect for each
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>=</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">i=1,\ldots, m</annotation></semantics></math>.
-Write <span class="math inline">$N_i=\TPi+\FNi$</span>, the number of
-cases; <span class="math inline">$\bar N_i=\FPi + \TNi$</span>, the
-number of non-cases; and
+Write
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>N</mi><mi>i</mi></msub><mo>=</mo><msub><mtext mathvariant="normal">TP</mtext><mi>i</mi></msub><mo>+</mo><msub><mtext mathvariant="normal">FN</mtext><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">N_i=\mbox{TP}_i+\mbox{FN}_i</annotation></semantics></math>,
+the number of cases;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>N</mi><mo accent="true">‾</mo></mover><mi>i</mi></msub><mo>=</mo><msub><mtext mathvariant="normal">FP</mtext><mi>i</mi></msub><mo>+</mo><msub><mtext mathvariant="normal">TN</mtext><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\bar N_i=\mbox{FP}_i + \mbox{TN}_i</annotation></semantics></math>,
+the number of non-cases; and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>n</mi><mi>i</mi></msub><mo>=</mo><msub><mi>N</mi><mi>i</mi></msub><mo>+</mo><msub><mover><mi>N</mi><mo accent="true">‾</mo></mover><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">n_i = N_i + \bar N_i</annotation></semantics></math>,
 the total sample size.</p>
 <p>Let
@@ -108,10 +103,13 @@ the specificity, and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>π</mi><mi>i</mi></msub><annotation encoding="application/x-tex">\pi_i</annotation></semantics></math>
 the prevalence of cases in the
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>th
-study. If there is no missing data, we can easily estimate them by <span class="math inline">$\hat p_i=\TPi/N_i$</span>, <span class="math inline">$\hat q_i=\TNi/\bar N_i$</span>, and
+study. If there is no missing data, we can easily estimate them by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mi>i</mi></msub><mo>=</mo><msub><mtext mathvariant="normal">TP</mtext><mi>i</mi></msub><mi>/</mi><msub><mi>N</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\hat p_i=\mbox{TP}_i/N_i</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>q</mi><mo accent="true">̂</mo></mover><mi>i</mi></msub><mo>=</mo><msub><mtext mathvariant="normal">TN</mtext><mi>i</mi></msub><mi>/</mi><msub><mover><mi>N</mi><mo accent="true">‾</mo></mover><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\hat q_i=\mbox{TN}_i/\bar N_i</annotation></semantics></math>,
+and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>π</mi><mo accent="true">̂</mo></mover><mi>i</mi></msub><mo>=</mo><msub><mi>N</mi><mi>i</mi></msub><mi>/</mi><msub><mi>n</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\hat\pi_i=N_i/n_i</annotation></semantics></math>,
-respectively. We can also feed the entire data <span class="math inline">$(\TPi, \FNi, \FPi, \TNi)$</span>
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>i</mi><mo>=</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>m</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(i=1,\ldots, m)</annotation></semantics></math>
+respectively. We can also feed the entire data
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mtext mathvariant="normal">TP</mtext><mi>i</mi></msub><mo>,</mo><msub><mtext mathvariant="normal">FN</mtext><mi>i</mi></msub><mo>,</mo><msub><mtext mathvariant="normal">FP</mtext><mi>i</mi></msub><mo>,</mo><msub><mtext mathvariant="normal">TN</mtext><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(\mbox{TP}_i, \mbox{FN}_i, \mbox{FP}_i, \mbox{TN}_i)</annotation></semantics></math><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>i</mi><mo>=</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>m</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(i=1,\ldots, m)</annotation></semantics></math>
 into any standard software, e.g., <code>mada</code> <span class="citation">(Sousa-Pinto 2022)</span>, for meta-analysis.</p>
 </div>
 <div class="section level2">
@@ -122,7 +120,10 @@ into any standard software, e.g., <code>mada</code> <span class="citation">(Sous
 </h3>
 <p>Consider the scenario where there are no non-cases in some study
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>,
-so <span class="math inline">$\FNi$</span>, <span class="math inline">$\TNi=$</span><code>NA</code>. An example:</p>
+so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mtext mathvariant="normal">FN</mtext><mi>i</mi></msub><annotation encoding="application/x-tex">\mbox{FN}_i</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext mathvariant="normal">TN</mtext><mi>i</mi></msub><mo>=</mo></mrow><annotation encoding="application/x-tex">\mbox{TN}_i=</annotation></semantics></math><code>NA</code>.
+An example:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/lmaowisc/mtroc" class="external-link">mtroc</a></span><span class="op">)</span></span>
 <span><span class="va">uts</span></span>
@@ -149,8 +150,11 @@ so <span class="math inline">$\FNi$</span>, <span class="math inline">$\TNi=$</s
 <span><span class="co">#&gt; Son         6  0  6  23</span></span>
 <span><span class="co">#&gt; Jafari     31  0 NA  NA</span></span>
 <span><span class="co">#&gt; Wang      110 18 NA  NA</span></span></code></pre></div>
-<p>We aim to fill in the missing values of <span class="math inline">$\FNi$</span> and <span class="math inline">$\TNi$</span> by <strong>multiple imputations
-(MI)</strong>.</p>
+<p>We aim to fill in the missing values of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mtext mathvariant="normal">FN</mtext><mi>i</mi></msub><annotation encoding="application/x-tex">\mbox{FN}_i</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mtext mathvariant="normal">TN</mtext><mi>i</mi></msub><annotation encoding="application/x-tex">\mbox{TN}_i</annotation></semantics></math>
+by <strong>multiple imputations (MI)</strong>.</p>
 </div>
 <div class="section level3">
 <h3 id="two-level-random-effects-models">Two-level random-effects models<a class="anchor" aria-label="anchor" href="#two-level-random-effects-models"></a>
@@ -168,7 +172,15 @@ Second, given
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>N</mi><mi>i</mi></msub><annotation encoding="application/x-tex">N_i</annotation></semantics></math>
 and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>N</mi><mo accent="true">‾</mo></mover><mi>i</mi></msub><annotation encoding="application/x-tex">\bar N_i</annotation></semantics></math>,
-the relative size of <span class="math inline">$\TPi$</span> vs <span class="math inline">$\FNi$</span>, and that of <span class="math inline">$\FPi$</span> vs <span class="math inline">$\TNi$</span>, are determined by sensitivity
+the relative size of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mtext mathvariant="normal">TP</mtext><mi>i</mi></msub><annotation encoding="application/x-tex">\mbox{TP}_i</annotation></semantics></math>
+vs
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mtext mathvariant="normal">FN</mtext><mi>i</mi></msub><annotation encoding="application/x-tex">\mbox{FN}_i</annotation></semantics></math>,
+and that of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mtext mathvariant="normal">FP</mtext><mi>i</mi></msub><annotation encoding="application/x-tex">\mbox{FP}_i</annotation></semantics></math>
+vs
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mtext mathvariant="normal">TN</mtext><mi>i</mi></msub><annotation encoding="application/x-tex">\mbox{TN}_i</annotation></semantics></math>,
+are determined by sensitivity
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>p</mi><mi>i</mi></msub><annotation encoding="application/x-tex">p_i</annotation></semantics></math>
 and specificity
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>q</mi><mi>i</mi></msub><annotation encoding="application/x-tex">q_i</annotation></semantics></math>,
@@ -178,8 +190,9 @@ impute the size of cases or non-cases; the second to impute specificity
 from sensitivity (or vice versa).</p>
 <p>To account for between-study heterogeneity, we add study-specific
 random effects on the logit scale of each model. Write <span class="math inline">${\rm logit}(x)=\log\{x/(1-x)\}$</span>. <span class="math display">$$\begin{align}\tag{1}
-\logit(\pi_i)&amp;= \alpha_0 + \varepsilon_i\\
-\logit(q_i) &amp;= (\beta_0 + b_{0i}) + (\beta_1 + b_{1i})\logit(p_i),
+{\rm logit}(\pi_i)&amp;= \alpha_0 + \varepsilon_i\\
+{\rm logit}(q_i) &amp;= (\beta_0 + b_{0i}) + (\beta_1 + b_{1i}){\rm
+logit}(p_i),
 \end{align}$$</span> where
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>α</mi><mn>0</mn></msub><mo>,</mo><msub><mi>β</mi><mn>0</mn></msub><mo>,</mo><msub><mi>β</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(\alpha_0, \beta_0, \beta_1)</annotation></semantics></math>
 are fixed effects,
@@ -201,12 +214,12 @@ we have complete estimates of
 and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>q</mi><mo accent="true">̂</mo></mover><mi>i</mi></msub><annotation encoding="application/x-tex">\hat q_i</annotation></semantics></math>.
 Using them as pseudo-observations in (1), we can estimate the parameters
-by <span class="math inline">$\hat\alpha=\mbox{mean}\{\logit(\hat\pi_i):
-i\in\mathcal C\}$</span>, <span class="math inline">$\hat\sigma_\pi^2=\mbox{var}\{\logit(\hat\pi_i):
-i\in\mathcal C\}$</span>,
+by <span class="math inline">$\hat\alpha=\mbox{mean}\{{\rm
+logit}(\hat\pi_i): i\in\mathcal C\}$</span>, <span class="math inline">$\hat\sigma_\pi^2=\mbox{var}\{{\rm
+logit}(\hat\pi_i): i\in\mathcal C\}$</span>,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>β</mi><mo accent="true">̂</mo></mover><mo>=</mo></mrow><annotation encoding="application/x-tex">\hat\beta=</annotation></semantics></math>
-least-squares estimate of <span class="math inline">$\logit(\hat q_i)
-\mbox{ vs }\logit(\hat p_i)$</span>
+least-squares estimate of <span class="math inline">${\rm logit}(\hat
+q_i) \mbox{ vs }{\rm logit}(\hat p_i)$</span>
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>i</mi><mo>∈</mo><mi>𝒞</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(i\in\mathcal C)</annotation></semantics></math>.
 Finally,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>Σ</mi><mi>b</mi></msub><annotation encoding="application/x-tex">\Sigma_b</annotation></semantics></math>
@@ -225,16 +238,18 @@ under standard least squares.</p>
 <div class="section level3">
 <h3 id="imputation-process">Imputation process<a class="anchor" aria-label="anchor" href="#imputation-process"></a>
 </h3>
-<p>For any <span class="math inline">$i\in\overline{\mathcal
-C}=\{i=1,\ldots, m: \FNi \mbox{ and } \TNi \mbox{ are
-missing}\}$</span>, we only know
+<p>For any
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>∈</mo><mover><mi>𝒞</mi><mo accent="true">¯</mo></mover><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>i</mi><mo>=</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>m</mi><mo>:</mo><msub><mtext mathvariant="normal">FN</mtext><mi>i</mi></msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> and </mtext><mspace width="0.333em"></mspace></mrow><msub><mtext mathvariant="normal">TN</mtext><mi>i</mi></msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> are missing</mtext></mrow><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">i\in\overline{\mathcal C}=\{i=1,\ldots, m: \mbox{FN}_i \mbox{ and } \mbox{TN}_i \mbox{ are missing}\}</annotation></semantics></math>,
+we only know
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>N</mi><mi>i</mi></msub><annotation encoding="application/x-tex">N_i</annotation></semantics></math>
 and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>p</mi><mo accent="true">̂</mo></mover><mi>i</mi></msub><annotation encoding="application/x-tex">\hat p_i</annotation></semantics></math>,
-and will have to impute <span class="math inline">$\FNi$</span> and
-<span class="math inline">$\TNi$</span>. We do so multiple times by
-drawing random effects from model (1), in order to account for the
-certainty in the missing values.</p>
+and will have to impute
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mtext mathvariant="normal">FN</mtext><mi>i</mi></msub><annotation encoding="application/x-tex">\mbox{FN}_i</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mtext mathvariant="normal">TN</mtext><mi>i</mi></msub><annotation encoding="application/x-tex">\mbox{TN}_i</annotation></semantics></math>.
+We do so multiple times by drawing random effects from model (1), in
+order to account for the certainty in the missing values.</p>
 <p>At the
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math>th
 imputation, for each
@@ -256,14 +271,19 @@ and
 in model (1);</li>
 <li>Impute the missing values by
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mover><mi>N</mi><mo accent="true">‾</mo></mover><mi>i</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>j</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><mo>=</mo><msub><mi>N</mi><mi>i</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msubsup><mover><mi>π</mi><mo accent="true">̂</mo></mover><mi>i</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>j</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><msubsup><mover><mi>π</mi><mo accent="true">̂</mo></mover><mi>i</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>j</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup></mrow><annotation encoding="application/x-tex">\bar N_i^{(j)}= N_i(1-\hat\pi_i^{(j)})/\hat\pi_i^{(j)}</annotation></semantics></math>,
-<span class="math inline">$\FNi^{(j)} = \bar N_i^{(j)}(1-\hat
-q_i^{(j)})$</span>, and <span class="math inline">$\TNi^{(j)} = \bar
-N_i^{(j)}\hat q_i^{(j)}$</span>.</li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mtext mathvariant="normal">FN</mtext><mi>i</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>j</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><mo>=</mo><msubsup><mover><mi>N</mi><mo accent="true">‾</mo></mover><mi>i</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>j</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msubsup><mover><mi>q</mi><mo accent="true">̂</mo></mover><mi>i</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>j</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mbox{FN}_i^{(j)} = \bar N_i^{(j)}(1-\hat q_i^{(j)})</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mtext mathvariant="normal">TN</mtext><mi>i</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>j</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><mo>=</mo><msubsup><mover><mi>N</mi><mo accent="true">‾</mo></mover><mi>i</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>j</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><msubsup><mover><mi>q</mi><mo accent="true">̂</mo></mover><mi>i</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>j</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup></mrow><annotation encoding="application/x-tex">\mbox{TN}_i^{(j)} = \bar N_i^{(j)}\hat q_i^{(j)}</annotation></semantics></math>.</li>
 </ul>
-<p>We thus obtain a completed dataset <span class="math display">$$
+<p>We thus obtain a completed dataset
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>𝒟</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>j</mi><mo stretchy="true" form="postfix">)</mo></mrow></msup><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mtext mathvariant="normal">TP</mtext><mi>i</mi></msub><mo>,</mo><msub><mtext mathvariant="normal">FN</mtext><mi>i</mi></msub><mo>,</mo><msubsup><mtext mathvariant="normal">FP</mtext><mi>i</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>j</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><mo>,</mo><msubsup><mtext mathvariant="normal">TN</mtext><mi>i</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>j</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><mo stretchy="true" form="postfix">)</mo></mrow><mo>:</mo><mi>i</mi><mo>=</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>m</mi><mo stretchy="false" form="postfix">}</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
 \mathcal D^{(j)}=
-\{(\TPi, \FNi, \FPi^{(j)}, \TNi^{(j)}): i=1,\ldots, m\},
-$$</span> where we define <span class="math inline">$\FPi^{(j)}=\FPi$</span> and <span class="math inline">$\TNi^{(j)}=\TNi$</span> for
+\{(\mbox{TP}_i, \mbox{FN}_i, \mbox{FP}_i^{(j)}, \mbox{TN}_i^{(j)}): i=1,\ldots, m\},
+</annotation></semantics></math> where we define
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mtext mathvariant="normal">FP</mtext><mi>i</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>j</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><mo>=</mo><msub><mtext mathvariant="normal">FP</mtext><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\mbox{FP}_i^{(j)}=\mbox{FP}_i</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mtext mathvariant="normal">TN</mtext><mi>i</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>j</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><mo>=</mo><msub><mtext mathvariant="normal">TN</mtext><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\mbox{TN}_i^{(j)}=\mbox{TN}_i</annotation></semantics></math>
+for
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>∈</mo><mi>𝒞</mi></mrow><annotation encoding="application/x-tex">i\in\mathcal C</annotation></semantics></math>.
 Given
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>𝒟</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>j</mi><mo stretchy="true" form="postfix">)</mo></mrow></msup><annotation encoding="application/x-tex">\mathcal D^{(j)}</annotation></semantics></math>,

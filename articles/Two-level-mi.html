@@ -33,7 +33,8 @@
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="../articles/Two-level-mi.html">Multiple imputations by two-level model</a></li>
+<li><a class="dropdown-item" href="../articles/test.html">test</a></li>
+    <li><a class="dropdown-item" href="../articles/Two-level-mi.html">Multiple imputations by two-level model</a></li>
   </ul>
 </li>
       </ul>
@@ -189,7 +190,7 @@ and for sensitivity-specificity relationship: the first allows us to
 impute the size of cases or non-cases; the second to impute specificity
 from sensitivity (or vice versa).</p>
 <p>To account for between-study heterogeneity, we add study-specific
-random effects on the logit scale of each model. Write <span class="math inline">${\rm logit}(x)=\log\{x/(1-x)\}$</span>.
+random effects on the logit scale of each model. Write <span class="math inline">$\mbox{logit}logit}(x)=\log\{x/(1-x)\}$</span>.
 <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="normal">logit</mtext><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>π</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msub><mi>α</mi><mn>0</mn></msub><mo>+</mo><msub><mi>ε</mi><mi>i</mi></msub></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="normal">logit</mtext><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>q</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>β</mi><mn>0</mn></msub><mo>+</mo><msub><mi>b</mi><mrow><mn>0</mn><mi>i</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>β</mi><mn>1</mn></msub><mo>+</mo><msub><mi>b</mi><mrow><mn>1</mn><mi>i</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mtext mathvariant="normal">logit</mtext><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>p</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{align}\tag{1}
 \mbox{logit}(\pi_i)&amp;= \alpha_0 + \varepsilon_i\\
 \mbox{logit}(q_i) &amp;= (\beta_0 + b_{0i}) + (\beta_1 + b_{1i})\mbox{logit}(p_i),

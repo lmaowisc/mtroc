@@ -66,5 +66,20 @@ model for prevalence and for sensitivity-specificity relationship: the
 first allows us to impute the size of cases or non-cases; the second to
 impute specificity from sensitivity (or vice versa).
 
+To account for between-study heterogeneity, we add study-specific random effects 
+on the logit scale of each model. Write ${\rm logit}(x)=\log\{x/(1-x)\}$.
+\begin{align}\tag{1}
+{\rm logit}(\pi_i)&= \alpha_0 + \varepsilon_i\\
+{\rm logit}(q_i) &= (\beta_0 + b_{0i}) + (\beta_1 + b_{1i}){\rm logit}(p_i),
+\end{align}
+where $(\alpha_0, \beta_0, \beta_1)$ are fixed effects, 
+$\varepsilon_i\sim N(0, \sigma_\pi^2)$, 
+$b_i=(b_{0i}, b_{1i})^{\rm T}\sim N(0, \Sigma_b)$,
+and $\varepsilon_i\perp b_i$.
+In particular, model (1) maximally allows for study-to-study variations
+in the prevalence and in the (generally negative) correlation between
+sensitivity and specificity.
+
+
 
 ## References

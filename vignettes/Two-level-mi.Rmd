@@ -67,7 +67,7 @@ first allows us to impute the size of cases or non-cases; the second to
 impute specificity from sensitivity (or vice versa).
 
 To account for between-study heterogeneity, we add study-specific random effects 
-on the logit scale of each model. Write ${\rm logit}(x)=\log\{x/(1-x)\}$.
+on the logit scale of each model. Write $\mbox{logit}logit}(x)=\log\{x/(1-x)\}$.
 \begin{align}\tag{1}
 \mbox{logit}(\pi_i)&= \alpha_0 + \varepsilon_i\\
 \mbox{logit}(q_i) &= (\beta_0 + b_{0i}) + (\beta_1 + b_{1i})\mbox{logit}(p_i),
